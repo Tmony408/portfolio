@@ -1,0 +1,191 @@
+.about-section {
+    padding: 6rem 0;
+    background-color: var(--bg-dark);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.5rem;
+}
+
+/* Staggered entry for children */
+.bento-grid>div {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.5, 0, 0, 1) forwards;
+}
+
+.bento-grid>div:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.bento-grid>div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.bento-grid>div:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.bento-grid>div:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.bento-card {
+    background: var(--bg-card);
+    border: var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.bento-card:hover {
+    background: var(--bg-card-hover);
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Bio Card - Spans 2 columns */
+.bio-card {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+}
+
+.bio-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(34, 211, 238, 0.3);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    /* Zooms in on face (top center) */
+    transition: transform 0.5s ease;
+    transform: scale(1.3);
+    /* Initial zoom to crop closer */
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.45);
+    /* Zooms in further on hover */
+}
+
+.bio-text {
+    flex-grow: 1;
+}
+
+.bio-text p {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.bio-text strong {
+    color: var(--primary-cyan);
+}
+
+/* Education Card */
+.education-card {
+    grid-column: span 1;
+}
+
+.edu-item h4 {
+    color: var(--text-white);
+    margin-bottom: 0.25rem;
+}
+
+.edu-degree {
+    color: var(--primary-cyan);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.edu-date {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+/* Interests Card */
+.interests-card {
+    grid-column: span 1;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-pill {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-gray-light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Stats Card - reuse interests style logic or distinct */
+.stats-card {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-cyan);
+}
+
+.stat-desc {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bio-card,
+    .stats-card {
+        grid-column: span 1;
+    }
+}

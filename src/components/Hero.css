@@ -1,0 +1,175 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--header-height) - 2rem);
+    /* Reduced top spacing */
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+/* Emoji Animations */
+.emoji-wave {
+    display: inline-block;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(14deg);
+    }
+
+    20% {
+        transform: rotate(-8deg);
+    }
+
+    30% {
+        transform: rotate(14deg);
+    }
+
+    40% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.emoji-bounce {
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeInUp 1s cubic-bezier(0.5, 0, 0, 1) forwards;
+}
+
+@keyframes floatClose {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.hero-greeting {
+    font-family: monospace;
+    margin-bottom: 0px;
+    /* Touching the name */
+    font-size: 1.2rem;
+    animation: floatClose 3s ease-in-out infinite;
+    display: inline-block;
+    /* Required for transform */
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-top: 0;
+    /* Remove top spacing */
+    margin-bottom: 0.5rem;
+    /* Reduced from 1rem */
+    color: var(--text-white);
+}
+
+.hero-subtitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    /* Reduced from 1.5rem */
+}
+
+.hero-description {
+    max-width: 600px;
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid var(--primary-cyan);
+    color: var(--primary-cyan);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-cyan-dim);
+    box-shadow: var(--primary-cyan-glow);
+}
+
+.btn-outline {
+    border: 1px solid var(--text-gray);
+    color: var(--text-white);
+}
+
+.btn-outline:hover {
+    border-color: var(--text-white);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 2.5rem;
+    }
+}

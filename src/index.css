@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap');
+
+html {
+  font-family: var(--font-main);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text-white);
+  background-color: var(--bg-dark);
+  scroll-behavior: smooth;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ... existing root ... */
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #fff, var(--text-gray));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-cyan {
+  color: var(--primary-cyan);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays if needed */
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media print {
+  :root {
+    --bg-dark: #ffffff;
+    --text-white: #000000;
+    --text-gray: #333333;
+    --text-gray-light: #555555;
+    --bg-card: #ffffff;
+    --glass-border: 1px solid #ddd;
+    --primary-cyan: #0077cc;
+    /* Darker blue for print legibility */
+  }
+
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  /* Hide non-resume elements */
+  .navbar,
+  .footer,
+  .hero-greeting,
+  .hero-buttons,
+  .hero-subtitle {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    color: black;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-description {
+    color: black;
+    margin: 0 auto 2rem;
+  }
+
+  /* Reset layout for print */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ccc;
+    background: none;
+    -webkit-text-fill-color: black;
+    color: black;
+  }
+
+  /* Grid resets */
+  .bento-grid,
+  .skills-grid {
+    display: block;
+  }
+
+  .bento-card,
+  .skills-wrapper,
+  .experience-card {
+    break-inside: avoid;
+    border: none;
+    background: none;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    box-shadow: none;
+    transform: none !important;
+  }
+
+  .bento-card:hover,
+  .experience-card:hover {
+    background: none;
+    box-shadow: none;
+  }
+
+  /* Typography tweaks */
+  p,
+  li,
+  span {
+    color: #333 !important;
+  }
+
+  .card-title,
+  .role-title,
+  .skills-category {
+    color: black;
+  }
+
+  .tag-pill,
+  .skill-item {
+    border: 1px solid #ccc;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  /* Experience specific */
+  .experience-card::before {
+    display: none;
+  }
+
+  .experience-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .role-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
